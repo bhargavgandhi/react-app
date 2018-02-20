@@ -1,0 +1,56 @@
+  /* ===========================
+     Author: Bhargav Gandhi (BG)
+     Description: _headerNav.scss
+     =========================== */
+
+  header{
+    margin-bottom: 60px;
+  }
+
+  header.row{
+    z-index: 999999;
+    min-height: 50px;
+  }
+
+
+/*logo address*/
+  h2.mainAdd{
+    font-size:13px;
+     color: #554b64;
+      letter-spacing: 2px;
+    word-spacing: 2px;
+     font-family: $fontStack;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left:0;
+        text-transform: capitalize;
+
+  }
+
+  .topLinks{
+    position: absolute;
+    right:0;
+
+    .nav {
+      margin: 0;
+    }
+    .navbar-nav>li>a {
+      font-size: 13px !important ;
+      color:#554b64 !important;
+      letter-spacing: 2px !important;
+      word-spacing: 2px !important;
+      font-family: $fontStack !important;
+       -webkit-font-smoothing: antialiased;
+           text-transform: capitalize;
+     }
+
+      .navbar-nav>li.Last>a{
+      padding-right:0;
+     }
+  }
+
+  @media screen and (min-width: 1000px){
+    #navProfile{
+      margin-right: 15px;
+    }
+  }

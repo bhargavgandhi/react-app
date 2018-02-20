@@ -3,9 +3,12 @@ import closeIcon from '../images/close-icon@2x.png';
 
 class Project extends Component {
   render() {
-    return (<div className="project-block">
-      <div id="project-popup" className="row textAlignCenter Hide">
-        <a className="close-project">
+    const {changeProjectStatus, status} = this.props;
+
+    return (
+      <div className="project-block">
+      <div id="project-popup" className={"row textAlignCenter " + status}>
+        <a className="close-project" onClick={changeProjectStatus}>
           <img src={closeIcon} width="20" height="20" alt="close icon"/>
         </a>
         <div className="reaCTA">
@@ -13,7 +16,7 @@ class Project extends Component {
           <p className="text-upper">American graphic design awards
             <span className="hidden-xs hidden-sm">—</span>
             GDUSA 2017</p>
-          <a href="assets/pdf/REA-GDUSA-Projects-Overview.pdf" target="_blank" onClick="ga('send', 'event', { eventCategory: 'projectOverview', eventAction: 'click', eventLabel: 'projectOverviewClick'});">
+          <a href="assets/pdf/REA-GDUSA-Projects-Overview.pdf" target="_blank" rel="noopener noreferrer">
             PROJECTS OVERVIEW
           </a>
           <div className="col-xs-11 project-overview">
@@ -113,8 +116,7 @@ class Project extends Component {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
   }
 }
 

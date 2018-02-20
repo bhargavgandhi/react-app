@@ -1,0 +1,323 @@
+/* ===========================
+     Author: Bhargav Gandhi (BG)
+     Description: _mediaMobile.scss
+     =========================== */
+/* Media Queries Mobile */
+@media screen and (min-width: 300px) {
+
+  .row {
+    margin: 0 auto !important;
+    width: 80%;
+    padding: 0 0 30px;
+  }
+  header.row {
+    min-height: 20px;
+    padding: 20px 0 30px;
+  }
+
+
+  .profileCopy {
+    article {
+      p {
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  #introVideo {}
+}
+@media screen and (min-width: 300px) and (max-width: 999px) {
+  .mob, .hidden-lg{
+    display: block;
+  }
+  .desk, .hidden-xs, .hidden-sm{
+    display: none;
+  }
+
+  .control{
+    display: none !important;
+  }
+
+  .vidPlayBtn {
+    display: none;
+  }
+
+  .itsSafari {
+
+    .vidPlayBtn {
+      position: absolute;
+      z-index: 9999;
+      top: 45%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      display: block;
+
+      #playBtn{
+        display: block;
+        pointer-events: all;
+        cursor: pointer;
+      }
+      img{
+        width: 30px;
+      }
+    }
+  }
+
+
+  #videoPoster {
+    position: relative;
+    left: 0;
+    right: 0;
+    max-height: 30vh;
+    min-height: 30vh;
+
+    .reaCTA {
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.65em;
+      letter-spacing: 0.6px;
+    }
+  }
+
+
+  footer.row,
+  header.row {
+    width: 85%;
+    margin: 0 auto !important;
+  }
+
+  .hide-header {
+    height: 0;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .mobMarginBtmNone {
+    margin-bottom: 0 !important;
+  }
+
+  body.Home2.full-height {
+    height: 100%;
+    height: 100vh;
+  }
+
+  body,
+  header {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+  }
+
+  #project-popup {
+    max-height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+
+    .reaCTA {
+      padding: 0 1.2em;
+
+      h2 {
+        font-size: 50px;
+        font-size: 3.125em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 13px;
+        font-size: 0.8em;
+        line-height: 1.76;
+        letter-spacing: 2.1px;
+        margin-bottom: 30px;
+      }
+
+      a {
+        font-size: 9px;
+        font-size: 0.55em;
+        letter-spacing: 1.3px;
+      }
+    }
+
+    .project-overview {
+      display: none;
+    }
+  }
+
+  section.row.HomeRow1 {
+    margin: 15% auto !important;
+    min-height: 47vh;
+  }
+  body.Resi, body.Home2{
+    section.row.HomeRow1 {
+      min-height: 40vh;
+    }
+  }
+
+  #infoEmail {
+    position: absolute;
+    left: 8%;
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
+    transform-origin: left;
+    -webkit-transform: rotate(0) translateX(0);
+    -ms-transform: rotate(0) translateX(0);
+    transform: rotate(0) translateX(0);
+    top: initial;
+    bottom: 8%;
+    margin: 0;
+    color: #3c5aff;
+
+    a {
+      font-family: $AtlasType;
+      font-size: 0.85em;
+      color: #3c5aff;
+      text-decoration: none;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: #3c5aff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .profileMain article h1,
+  .profileMain article p {
+    font-family: "AtlasGrotesk-Light",sans-serif;
+    font-size: 30px;
+    font-size: 2em;
+    font-weight: 300;
+    color: #3c3c3b;
+    line-height: 1.2;
+    margin: 0 0 5%;
+  }
+
+  footer {
+    text-align: right;
+
+    .socialIcons {
+      a {
+        font-size: 1.1em;
+        margin: 0 5px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 900px) and (max-height:600px) {
+  #videoPoster {
+    max-height: 50vh;
+    min-height: 50vh;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  .profileMain article h1,
+  .profileMain article p {
+    font-size: 28px;
+    font-size: 1.8em;
+  }
+}
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {}
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  section.row.HomeRow1 #homeHero {
+    background-size: 50% auto;
+  }
+}
+/* ----------- iPhone 5 and 5S ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  #videoPoster {
+    h1 {
+      font-size: 1.5em;
+    }
+
+    p {
+      font-size: 0.6em;
+    }
+  }
+}
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  section.row.HomeRow1 {
+    margin: 0 auto !important;
+    min-height: 100vh;
+  }
+
+  #videoPoster {
+    max-height: 55vh;
+    min-height: 55vh;
+  }
+}
+/* ----------- iPhone 6 ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .profileMain article h1,
+  .profileMain article p {
+    font-size: 28px;
+    font-size: 1.8em;
+  }
+
+  .profileCopy article p {
+    font-size: 1.1em;
+  }
+}
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  section.row.HomeRow1 {
+    margin: 0 auto !important;
+    min-height: 100vh;
+  }
+
+  #videoPoster {
+    max-height: 55vh;
+    min-height: 55vh;
+  }
+}
+/* ----------- iPhone 6+ ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {}
+/* Portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  section.row.HomeRow1 {
+    margin: 0 auto !important;
+    min-height: 100vh;
+  }
+
+  #videoPoster {
+    max-height: 55vh;
+    min-height: 55vh;
+  }
+}
+/* Landscape */
+@media only screen and (min-device-width: 412px) and (max-device-width: 732px) and (orientation: landscape) {
+  section.row.HomeRow1 {
+    margin: 0 auto !important;
+    min-height: 100vh;
+  }
+
+  #videoPoster {
+    max-height: 55vh;
+    min-height: 55vh;
+  }
+}

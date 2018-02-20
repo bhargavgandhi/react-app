@@ -1,44 +1,114 @@
-import React, { Component } from 'react';
-import reaLogo from '../images/REA-Logo.svg';
+import React, {Component} from 'react';
 
-class Header extends Component{
-  render(){
-    return(
-      <header className="row">
-        <nav id="mainNav" className="navbar navbar-default" role="navigation">
-          <div className="container">
+class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bodyClass: "",
+    };
+  }
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.location.pathname === "/contact" && this.setState({bodyClass: "Profile"});
 
-            <div id="REALogo" className="navbar-header">
-              <div id="nav-icon3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+      const bodyClass = this.state.bodyClass;
 
-              <a className="navbar-brand" href="http://www.realestatearts.com/" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'reaLogo'});">
-                <img src={reaLogo} width="100%" className="img-responsive" alt="REA Logo" />
-              </a>
+      document.body.classList = "";
+      bodyClass !== "" && document.body.classList.add(bodyClass, "animated");
+    }
+  }
 
-            </div>
+  componentWillMount() {
+    if (typeof window !== 'undefined') {
+      window.location.pathname === "/contact" && this.setState({bodyClass: "Profile"});
 
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav">
+      const bodyClass = this.state.bodyClass;
 
-                <li id="navWork" className="active"><a href="index.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'homeClick'});">Overview</a></li>
-                <li id="navResi"><a href="residential.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'residentialClick'});">Residential</a></li>
-                <li id="navAbout"><a href="contact.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'profileClick'});">Contact</a></li>
+      document.body.classList = "";
+      bodyClass !== "" && document.body.classList.add(bodyClass, "animated");
+    }
 
-              </ul>
+  }
 
-            </div>
+  render() {
+    const pMarginTop = {
+      marginTop: 0
+    };
+    const pMarginTop5 = {
+      marginTop: "5px"
+    };
 
-          </div>
-        </nav>
-      </header>
+  return (<div className="main">
+      <section className="row FullWidth profileMain">
+        <article className="col-xs-12 col-sm-11">
+          <h1>We are REA.</h1>
+          <p className="mobMarginBtmNone">
+            A collective of international brand specialists shaping dialogue and design through culture, place and art.
+          </p>
+        </article>
 
-    );
+        <span id="infoEmail" className="hidden-xs hidden-sm">
+          <a href="mailto:info@realestatearts.com" target="_blank" rel="noopener noreferrer">info@realestatearts.com</a>
+        </span>
+
+      </section>
+      <section className="row FullWidth profileCopy">
+        <article className="col-xs-12 hidden-md hidden-lg">
+          <p style={pMarginTop}>
+            If you would like to learn more about us or have a business opportunity you’d like to discuss please contact:
+          </p>
+        </article>
+        <article className="marginRightTab1 col-xs-12 col-sm-5 col-md-3">
+          <p>
+            New York
+            <br/>
+            132 West 31st Street
+            <br/>
+            31 Penn Plaza, Suite 602
+            <br/>
+            New York, NY 10001
+            <br/>
+            <a href="tel:212.226.3300">212.226.3300</a>
+          </p>
+          <p>
+            Washington DC
+            <br/>
+            1348 Florida Avenue NW
+            <br/>
+            Washington DC 20009
+            <br/>
+            <a href="tel:202.702.8898">202.702.8898</a>
+          </p>
+        </article>
+        <article className="marginRight5 col-xs-12 col-sm-6 col-md-4">
+          <p className="hidden-xs hidden-sm">
+            If you would like to learn more about us or have a business opportunity you’d like to discuss please contact:
+          </p>
+
+          <p>
+            New York
+            <a href="mailto:hellonyc@realestatearts.com" target="_blank" rel="noopener noreferrer">hellonyc@realestatearts.com</a>
+          </p>
+          <p>
+            Washington DC
+            <a href="mailto:hellodc@realestatearts.com" target="_blank" rel="noopener noreferrer">hellodc@realestatearts.com</a>
+          </p>
+          <p>
+            Employment
+            <a href="mailto:careers@realestatearts.com" target="_blank" rel="noopener noreferrer">careers@realestatearts.com</a>
+          </p>
+        </article>
+        <article className="col-xs-12 col-sm-6 col-md-3 marginTopTab3">
+          <p>
+            REA ©2018.
+          </p>
+          <p style={pMarginTop5}>
+            All Rights Reserved.
+          </p>
+        </article>
+      </section>
+    </div>);
   }
 }
 
-export default Header;
+export default Contact;

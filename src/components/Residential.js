@@ -1,44 +1,86 @@
-import React, { Component } from 'react';
-import reaLogo from '../images/REA-Logo.svg';
+import React, {Component} from 'react';
+import Video from './Video';
 
-class Header extends Component{
-  render(){
-    return(
-      <header className="row">
-        <nav id="mainNav" className="navbar navbar-default" role="navigation">
-          <div className="container">
+class Residential extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bodyClass: "",
+      fullHeight: "full-height",
+    };
+  }
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.location.pathname === "/" && this.setState({bodyClass: "Home2"});
+      window.location.pathname === "/residential" && this.setState({bodyClass: "Resi"});
+      window.location.pathname === "/contact" && this.setState({bodyClass: "Profile", fullHeight: ""});
 
-            <div id="REALogo" className="navbar-header">
-              <div id="nav-icon3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+      const bodyClass = this.state.bodyClass;
+      const fullHeight = this.state.fullHeight;
+
+      document.body.classList = "";
+      bodyClass !== "" && document.body.classList.add(bodyClass, "animated", fullHeight !== "" && fullHeight);
+    }
+  }
+
+  componentWillMount() {
+    if (typeof window !== 'undefined') {
+
+      window.location.pathname === "/" && this.setState({bodyClass: "Home2"});
+      window.location.pathname === "/residential" && this.setState({bodyClass: "Resi"});
+      window.location.pathname === "/contact" && this.setState({bodyClass: "Profile", fullHeight: ""});
+
+      const bodyClass = this.state.bodyClass;
+      const fullHeight = this.state.fullHeight;
+
+      document.body.classList = "";
+      bodyClass !== "" && document.body.classList.add(bodyClass, "animated", fullHeight !== "" && fullHeight);
+    }
+
+  }
+
+  render() {
+    const videoURL = "https://s3.amazonaws.com/reacdn/REA/REA-residential-animation.mov";
+
+    return (
+      <div className="main">
+      <section className="row FullWidth HomeRow1 textAlignCenter" id="homeRow1">
+        <article id="homeHero" className="col-xs-12 col-md-12">
+          <Video autoPlay="true" videoURL={videoURL} />
+
+          <div className="control">
+            <div className="btmControl">
+              <div className="btnPlay btn" title="Play/Pause video">
+                <span className="icon-play"></span>
               </div>
-
-              <a className="navbar-brand" href="http://www.realestatearts.com/" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'reaLogo'});">
-                <img src={reaLogo} width="100%" className="img-responsive" alt="REA Logo" />
-              </a>
-
+              <div className="progress-bar">
+                <div className="progress">
+                  <span className="bufferBar"></span>
+                  <span className="timeBar"></span>
+                </div>
+              </div>
+              <div className="btnFS btn" title="Switch to full screen">
+                <span className="icon-fullscreen"></span>
+              </div>
             </div>
-
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav">
-
-                <li id="navWork" className="active"><a href="index.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'homeClick'});">Overview</a></li>
-                <li id="navResi"><a href="residential.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'residentialClick'});">Residential</a></li>
-                <li id="navAbout"><a href="contact.html" onClick="ga('send', 'event', { eventCategory: 'mainNav', eventAction: 'click', eventLabel: 'profileClick'});">Contact</a></li>
-
-              </ul>
-
-            </div>
-
           </div>
-        </nav>
-      </header>
 
-    );
+          <div className="vidPlayBtn">
+            <a id="playBtn">
+              <img src="assets/images/play-btn.png" alt="play button" width="50"/>
+            </a>
+          </div>
+        </article>
+
+        <span id="infoEmail">
+          <a className="desk hidden-xs hidden-sm" href="mailto:info@realestatearts.com" target="_blank" rel="noopener noreferrer">info@realestatearts.com</a>
+          <a className="mob hidden-lg" href="mailto:info@realestatearts.com" target="_blank" rel="noopener noreferrer">E-mail</a>
+        </span>
+
+      </section>
+    </div>
+  );
   }
 }
 
-export default Header;
+export default Residential;

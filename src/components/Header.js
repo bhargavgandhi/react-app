@@ -1,43 +1,85 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import reaLogo from '../images/REA-Logo.svg';
+import {Navbar, Nav, NavItem} from 'react-bootstrap/lib';
+import {Link} from 'react-router-dom'
 
-class Header extends Component{
-  render(){
-    return(
-      <header className="row">
-        <nav id="mainNav" className="navbar navbar-default" role="navigation">
-          <div className="container">
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      homeNav: '',
+      resiNav: '',
+      contactNav: ''
+    };
 
-            <div id="REALogo" className="navbar-header">
-              <div id="nav-icon3" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+  }
+  componentDidMount() {
+    window.location.pathname === "/" && this.state.homeNav === "" && this.setState({
+      homeNav: 'active',
+      resiNav: '',
+      contactNav: ''
+    });
+    window.location.pathname === "/residential" && this.state.resiNav === "" && this.setState({
+      resiNav: 'active',
+      homeNav: '',
+      contactNav: ''
+    });
+    window.location.pathname === "/contact" && this.state.contactNav === "" && this.setState({
+      contactNav: 'active',
+      homeNav: '',
+      resiNav: ''
+     });
+  }
 
-              <a className="navbar-brand" href="http://www.realestatearts.com/" >
-                <img src={reaLogo} width="100%" className="img-responsive" alt="REA Logo" />
-              </a>
 
-            </div>
+  componentDidUpdate() {
+    window.location.pathname === "/" && this.state.homeNav === "" && this.setState({
+      homeNav: 'active',
+      resiNav: '',
+      contactNav: ''
+    });
+    window.location.pathname === "/residential" && this.state.resiNav === "" && this.setState({
+      resiNav: 'active',
+      homeNav: '',
+      contactNav: ''
+    });
+    window.location.pathname === "/contact" && this.state.contactNav === "" && this.setState({
+      contactNav: 'active',
+      homeNav: '',
+      resiNav: ''
+     });
+  }
 
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav">
+  render() {
+    const { status } = this.props;
+    const { homeNav, resiNav, contactNav } = this.state;
 
-                <li id="navWork" className="active"><a href="index.html" >Overview</a></li>
-                <li id="navResi"><a href="residential.html" >Residential</a></li>
-                <li id="navAbout"><a href="contact.html" >Contact</a></li>
-
-              </ul>
-
-            </div>
-
-          </div>
-        </nav>
-      </header>
-
-    );
+  return (
+      <header className={"row " + status}>
+      <Navbar id="mainNav" role="navigation" collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="http://www.realestatearts.com/">
+              <img src={reaLogo} width="100%" className="img-responsive" alt="REA Logo"/>
+            </a>
+          </Navbar.Brand>
+          <Navbar.Toggle/>
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav>
+            <NavItem componentClass={Link} id="navWork" eventKey={1} href="/" to="/" className={homeNav==='active' ? "active" : ""}>
+              Overview
+            </NavItem>
+            <NavItem componentClass={Link} eventKey={2} href="/residential" to="/residential" id="navResi" className={resiNav==='active' ? "active" : ""}>
+              Residential
+            </NavItem>
+            <NavItem componentClass={Link} eventKey={3} href="/contact" to="/contact" id="navAbout" className={contactNav==='active' ? "active" : ""}>
+              Contact
+            </NavItem>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </header>);
   }
 }
 

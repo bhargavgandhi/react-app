@@ -1,0 +1,42 @@
+  /* ===========================
+     Author: Bhargav Gandhi (BG)
+     Description: _mediaTablet.scss
+     =========================== */
+
+/* Media Queries Tablet */
+
+@media screen and (min-width: 768px) {
+  .container{
+    width: 100%;
+  }
+  .marginRightTab1{
+    margin-right: 2%;
+  }
+  .marginTopTab3{
+    margin-top: 10px;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) and (orientation: landscape) {
+
+  .profileMain article p {
+    line-height: 1.2;
+    max-width: 90%;
+    text-align: left;
+}
+
+
+    .profileMain article h1, .profileMain article p {
+      font-size: 30px;
+      font-size: 2.4em;
+
+    }
+    .profileCopy article p {
+        font-size: 1.1em;
+    }
+    #mainNav.navbar-default .navbar-nav>li>a {
+      font-size: 1.1em;
+      padding: 20px 0;
+  }
+}
