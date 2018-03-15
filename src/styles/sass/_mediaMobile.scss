@@ -4,17 +4,16 @@
      =========================== */
 /* Media Queries Mobile */
 @media screen and (min-width: 300px) {
-
   .row {
     margin: 0 auto !important;
     width: 80%;
     padding: 0 0 30px;
   }
+
   header.row {
     min-height: 20px;
     padding: 20px 0 30px;
   }
-
 
   .profileCopy {
     article {
@@ -27,14 +26,18 @@
   #introVideo {}
 }
 @media screen and (min-width: 300px) and (max-width: 999px) {
-  .mob, .hidden-lg{
+  .hidden-lg,
+  .mob {
     display: block;
   }
-  .desk, .hidden-xs, .hidden-sm{
+
+  .desk,
+  .hidden-sm,
+  .hidden-xs {
     display: none;
   }
 
-  .control{
+  .control {
     display: none !important;
   }
 
@@ -43,7 +46,6 @@
   }
 
   .itsSafari {
-
     .vidPlayBtn {
       position: absolute;
       z-index: 9999;
@@ -53,17 +55,17 @@
       margin: 0 auto;
       display: block;
 
-      #playBtn{
+      #playBtn {
         display: block;
         pointer-events: all;
         cursor: pointer;
       }
-      img{
+
+      img {
         width: 30px;
       }
     }
   }
-
 
   #videoPoster {
     position: relative;
@@ -90,11 +92,30 @@
     }
   }
 
+  section.row.HomeRow1 #homeHero{
+    margin: 50% auto 0;
+    transform: translate3d(0,-40%, 0);
+  }
 
   footer.row,
   header.row {
     width: 85%;
     margin: 0 auto !important;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    .socialIcons {
+      display: inline-block;
+      width: 69%;
+      text-align: right;
+    }
   }
 
   .hide-header {
@@ -107,9 +128,9 @@
     margin-bottom: 0 !important;
   }
 
-  body.Home2.full-height {
+  html.full-height,
+  body.full-height {
     height: 100%;
-    height: 100vh;
   }
 
   body,
@@ -154,18 +175,25 @@
   }
 
   section.row.HomeRow1 {
-    margin: 15% auto !important;
+    margin: 0 auto !important;
     min-height: 47vh;
   }
-  body.Resi, body.Home2{
+
+  body.Home2,
+  body.Resi {
     section.row.HomeRow1 {
       min-height: 40vh;
     }
   }
 
   #infoEmail {
-    position: absolute;
-    left: 8%;
+    display: inline-block;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 28%;
+    margin: 0;
+    text-align: left;
     -webkit-transform-origin: left;
     -ms-transform-origin: left;
     transform-origin: left;
@@ -173,7 +201,6 @@
     -ms-transform: rotate(0) translateX(0);
     transform: rotate(0) translateX(0);
     top: initial;
-    bottom: 8%;
     margin: 0;
     color: #3c5aff;
 

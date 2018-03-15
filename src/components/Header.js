@@ -14,17 +14,17 @@ class Header extends Component {
 
   }
   componentDidMount() {
-    window.location.pathname === "/" && this.state.homeNav === "" && this.setState({
+    window.location.pathname === '/' && this.state.homeNav === '' && this.setState({
       homeNav: 'active',
       resiNav: '',
       contactNav: ''
     });
-    window.location.pathname === "/residential" && this.state.resiNav === "" && this.setState({
+    window.location.pathname === '/residential' && this.state.resiNav === '' && this.setState({
       resiNav: 'active',
       homeNav: '',
       contactNav: ''
     });
-    window.location.pathname === "/contact" && this.state.contactNav === "" && this.setState({
+    window.location.pathname === '/contact' && this.state.contactNav === '' && this.setState({
       contactNav: 'active',
       homeNav: '',
       resiNav: ''
@@ -33,17 +33,17 @@ class Header extends Component {
 
 
   componentDidUpdate() {
-    window.location.pathname === "/" && this.state.homeNav === "" && this.setState({
+    window.location.pathname === '/' && this.state.homeNav === '' && this.setState({
       homeNav: 'active',
       resiNav: '',
       contactNav: ''
     });
-    window.location.pathname === "/residential" && this.state.resiNav === "" && this.setState({
+    window.location.pathname === '/residential' && this.state.resiNav === '' && this.setState({
       resiNav: 'active',
       homeNav: '',
       contactNav: ''
     });
-    window.location.pathname === "/contact" && this.state.contactNav === "" && this.setState({
+    window.location.pathname === '/contact' && this.state.contactNav === '' && this.setState({
       contactNav: 'active',
       homeNav: '',
       resiNav: ''
@@ -55,25 +55,25 @@ class Header extends Component {
     const { homeNav, resiNav, contactNav } = this.state;
 
   return (
-      <header className={"row " + status}>
-      <Navbar id="mainNav" role="navigation" collapseOnSelect>
+      <header className={'row ' + status}>
+      <Navbar id='mainNav' role='navigation' collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="http://www.realestatearts.com/">
-              <img src={reaLogo} width="100%" className="img-responsive" alt="REA Logo"/>
+            <a href='http://www.realestatearts.com/'>
+              <img src={reaLogo} width='100%' className='img-responsive' alt='REA Logo'/>
             </a>
           </Navbar.Brand>
           <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem componentClass={Link} id="navWork" eventKey={1} href="/" to="/" className={homeNav==='active' ? "active" : ""}>
+            <NavItem componentClass={Link} id='navWork' eventKey={1} href='/' to='/' className={homeNav==='active' ? 'active' : ''}>
               Overview
             </NavItem>
-            <NavItem componentClass={Link} eventKey={2} href="/residential" to="/residential" id="navResi" className={resiNav==='active' ? "active" : ""}>
+            <NavItem componentClass={Link} eventKey={2} href='/residential' to='/residential' id='navResi' className={resiNav==='active' ? 'active' : ''}>
               Residential
             </NavItem>
-            <NavItem componentClass={Link} eventKey={3} href="/contact" to="/contact" id="navAbout" className={contactNav==='active' ? "active" : ""}>
+            <NavItem componentClass={Link} eventKey={3} href='/contact' to='/contact' id='navAbout' className={contactNav==='active' ? 'active' : ''}>
               Contact
             </NavItem>
           </Nav>

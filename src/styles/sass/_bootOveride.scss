@@ -191,7 +191,6 @@ a.navbar-brand {
 .navbar-default.affix .nav > li > a,
 .navbar-default.affix .nav > li > a:focus {
   /* color: #0000ff;*/
-  text-decoration: none;
 }
 
 #mainNav.navbar-default .nav > li.active > a,
@@ -200,28 +199,8 @@ a.navbar-brand {
   color: #3c3c3b !important;
 }
 
-#mainNav {
-  ul {
-    li {
-      a {
-        color: #3c3c3b !important;
-        text-decoration: none !important;
-
-        &:active,
-        &:focus,
-        &:hover,
-        &:visited {
-          color: #3c3c3b !important;
-          text-decoration: none !important;
-        }
-      }
-    }
-  }
-}
-
 #mainNav .nav > li > a:hover {
   color: #3c3c3b !important;
-  text-decoration: none !important;
 }
 
 #mainNav {
@@ -416,10 +395,13 @@ a.navbar-brand {
     font-size: 14px;
     text-transform: uppercase;
     font-family: $fontStack;
+    text-align: right;
+    float: right !important;
   }
 
   .navbar-toggle {
     position: relative;
+    float: none !important;
     padding: 5px !important;
     margin-top: 5px !important;
     margin-right: 0;

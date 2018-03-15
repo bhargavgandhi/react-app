@@ -6803,24 +6803,15 @@ a.navbar-brand {
 .nav > li > a:hover,
 .navbar-default.affix .nav > li > a,
 .navbar-default.affix .nav > li > a:focus {
-  /* color: #0000ff;*/
-  text-decoration: none; }
+  /* color: #0000ff;*/ }
 
 #mainNav.navbar-default .nav > li.active > a,
 #mainNav.navbar-default .nav > li.active > a:focus {
   /*color: #0000ff;*/
   color: #3c3c3b !important; }
 
-#mainNav ul li a {
-  color: #3c3c3b !important;
-  text-decoration: none !important; }
-  #mainNav ul li a:active, #mainNav ul li a:focus, #mainNav ul li a:hover, #mainNav ul li a:visited {
-    color: #3c3c3b !important;
-    text-decoration: none !important; }
-
 #mainNav .nav > li > a:hover {
-  color: #3c3c3b !important;
-  text-decoration: none !important; }
+  color: #3c3c3b !important; }
 
 #mainNav {
   border: 0 none;
@@ -6984,9 +6975,12 @@ a.navbar-brand {
     font-weight: 400;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: "AtlasGrotesk-Regular", sans-serif; }
+    font-family: "AtlasGrotesk-Regular", sans-serif;
+    text-align: right;
+    float: right !important; }
   .navbar-toggle {
     position: relative;
+    float: none !important;
     padding: 5px !important;
     margin-top: 5px !important;
     margin-right: 0;
@@ -10637,6 +10631,9 @@ header.row {
       width: 100%;
       margin: 0 auto !important; } }
 
+.project-block {
+  position: relative; }
+
 #project-popup {
   position: absolute;
   top: 0;
@@ -11158,9 +11155,12 @@ footer {
     font-size: 1.1em; } }
 
 @media screen and (min-width: 300px) and (max-width: 999px) {
-  .mob, .hidden-lg {
+  .hidden-lg,
+  .mob {
     display: block; }
-  .desk, .hidden-xs, .hidden-sm {
+  .desk,
+  .hidden-sm,
+  .hidden-xs {
     display: none; }
   .control {
     display: none !important; }
@@ -11197,19 +11197,33 @@ footer {
     #videoPoster p {
       font-size: 0.65em;
       letter-spacing: 0.6px; }
+  section.row.HomeRow1 #homeHero {
+    margin: 50% auto 0;
+    transform: translate3d(0, -40%, 0); }
   footer.row,
   header.row {
     width: 85%;
     margin: 0 auto !important; }
+  footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+    z-index: -1; }
+    footer .socialIcons {
+      display: inline-block;
+      width: 69%;
+      text-align: right; }
   .hide-header {
     height: 0;
     min-height: 0 !important;
     padding: 0 !important; }
   .mobMarginBtmNone {
     margin-bottom: 0 !important; }
-  body.Home2.full-height {
-    height: 100%;
-    height: 100vh; }
+  html.full-height,
+  body.full-height {
+    height: 100%; }
   body,
   header {
     transition: all 0.5s ease-in-out;
@@ -11238,13 +11252,19 @@ footer {
     #project-popup .project-overview {
       display: none; }
   section.row.HomeRow1 {
-    margin: 15% auto !important;
+    margin: 0 auto !important;
     min-height: 47vh; }
-  body.Resi section.row.HomeRow1, body.Home2 section.row.HomeRow1 {
+  body.Home2 section.row.HomeRow1,
+  body.Resi section.row.HomeRow1 {
     min-height: 40vh; }
   #infoEmail {
-    position: absolute;
-    left: 8%;
+    display: inline-block;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 28%;
+    margin: 0;
+    text-align: left;
     -webkit-transform-origin: left;
     -ms-transform-origin: left;
     transform-origin: left;
@@ -11252,7 +11272,6 @@ footer {
     -ms-transform: rotate(0) translateX(0);
     transform: rotate(0) translateX(0);
     top: initial;
-    bottom: 8%;
     margin: 0;
     color: #3c5aff; }
     #infoEmail a {
@@ -11381,7 +11400,7 @@ footer {
     font-size: 1.1em; }
   #mainNav.navbar-default .navbar-nav > li > a {
     font-size: 1.1em;
-    padding: 20px 0; } }
+    padding: 20px 0 0; } }
 
 /* ===========================
      Author: Bhargav Gandhi (BG)
@@ -11414,12 +11433,11 @@ footer {
       color: #3c3c3b; }
   header.row {
     padding: 20px 20px 40px; }
+  /*Home Page */
   .mob {
     display: none !important; }
   .desk {
     display: block; }
-  .project-block {
-    position: relative; }
   section.row.HomeRow1 {
     background-color: #ffffff; }
     section.row.HomeRow1 #homeHero {
