@@ -4,22 +4,23 @@ class Footer extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      infoClass: '',
+      infoClass: this.props.hideInfo && 'hide',
     };
   }
-  componentDidMount() {
-    if (typeof window !== 'undefined') {
-      window.location.pathname === '/contact' && this.setState({infoClass: 'hide'});
-      window.location.pathname === '/' && this.setState({infoClass: ''});
-      window.location.pathname === '/Resi' && this.setState({infoClass: ''});
-    }
-  }
-  componentDidUpdate() {
-    if (typeof window !== 'undefined') {
-      window.location.pathname === '/contact' && this.state.infoClass === '' && this.setState({infoClass: 'hide'});
-      window.location.pathname !== '/contact' && this.state.infoClass === 'hide' && this.setState({infoClass: ''});
-    }
-  }
+
+  // componentDidMount() {
+  //   if (typeof window !== 'undefined') {
+  //     window.location.pathname === '/contact' && this.setState({infoClass: 'hide'});
+  //     window.location.pathname === '/' && this.setState({infoClass: ''});
+  //     window.location.pathname === '/Resi' && this.setState({infoClass: ''});
+  //   }
+  // }
+  // componentDidUpdate() {
+  //   if (typeof window !== 'undefined') {
+  //     window.location.pathname === '/contact' && this.state.infoClass === '' && this.setState({infoClass: 'hide'});
+  //     window.location.pathname !== '/contact' && this.state.infoClass === 'hide' && this.setState({infoClass: ''});
+  //   }
+  // }
 
   render(){
     const { infoClass } = this.state;

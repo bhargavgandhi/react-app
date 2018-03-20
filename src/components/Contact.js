@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
+import {Helmet} from "react-helmet";
 
 class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bodyClass: '',
+      bodyClass: 'Profile',
+      fullHeight: ''
     };
   }
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
-      window.location.pathname === '/' && this.setState({bodyClass: 'Home2', fullHeight: 'full-height',});
-      window.location.pathname === '/residential' && this.setState({bodyClass: 'Resi', fullHeight: 'full-height',});
-      window.location.pathname === '/contact' && this.setState({bodyClass: 'Profile', fullHeight: ''});
+      // window.location.pathname === '/' && this.setState({bodyClass: 'Home2', fullHeight: 'full-height',});
+      // window.location.pathname === '/residential' && this.setState({bodyClass: 'Resi', fullHeight: 'full-height',});
+      // window.location.pathname === '/contact' && this.setState({bodyClass: 'Profile', fullHeight: ''});
 
       const bodyClass = this.state.bodyClass;
       const fullHeight = this.state.fullHeight;
@@ -21,7 +23,7 @@ class Contact extends Component {
       bodyClass !== '' && document.body.classList.add(bodyClass, 'animated', fullHeight !== '' && fullHeight);
     }
   }
-  
+
   render() {
     const pMarginTop = {
       marginTop: 0
@@ -30,7 +32,13 @@ class Contact extends Component {
       marginTop: '5px'
     };
 
-  return (<div className='main'>
+  return (
+    <div className='main'>
+      <Helmet>
+        <title>Real Estate Arts | Contact </title>
+        <meta name="description" content="Real Estate Arts (REA) - Contact" />
+      </Helmet>
+
       <section className='row FullWidth profileMain'>
         <article className='col-xs-12 col-sm-11'>
           <h1>We are REA.</h1>

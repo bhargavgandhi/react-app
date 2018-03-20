@@ -4,7 +4,7 @@ class Video extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoBlock: '',
+      videoBlock: this.props.videoBlock,
       autoPlay: this.props.autoPlay,
     };
 
@@ -28,26 +28,19 @@ class Video extends Component {
       document.webkitExitFullscreen();
     }
   }
-  componentDidMount() {
-    window.location.pathname === '/' && this.state.videoBlock === '' && this.setState({videoBlock: 'home'});
-    window.location.pathname === '/residential' && this.state.videoBlock === '' && this.setState({videoBlock: 'residential'});
-  }
+  // componentDidMount() {
+  //   const baseUrl = process.env.PUBLIC_URL;
+  //
+  //   window.location.pathname === (baseUrl + '/') && this.state.videoBlock === '' && this.setState({videoBlock: 'home'});
+  //   window.location.pathname === (baseUrl + '/residential') && this.state.videoBlock === '' && this.setState({videoBlock: 'residential'});
+  // }
 
-  componentDidUpdate() {
-    window.location.pathname === '/' && this.state.videoBlock === '' && this.setState({videoBlock: 'home'});
-    window.location.pathname === '/residential' && this.state.videoBlock === '' && this.setState({videoBlock: 'residential'});
-
-    let { autoPlay } = this.state
-    if(autoPlay === false) {
-      autoPlay = true;
-      this.state.autoPlay === !autoPlay && this.setState({autoPlay});
-      this.endVideo();
-    }
-
-    const {videoBlock} = this.state;
-    if(videoBlock === 'residential') this.endVideo();
-
-  }
+  // componentDidUpdate() {
+  //   const baseUrl = process.env.PUBLIC_URL;
+  //
+  //   window.location.pathname === (baseUrl + '/') && this.state.videoBlock === '' && this.setState({videoBlock: 'home'});
+  //   window.location.pathname === (baseUrl + '/residential') && this.state.videoBlock === '' && this.setState({videoBlock: 'residential'});
+  // }
 
   render() {
     const {status, changeVideoStatus, videoURL, PosterImg } = this.props;
@@ -59,18 +52,42 @@ class Video extends Component {
       <div>
       {
         videoBlock === 'home' &&
-        <video ref='vidRef' className={status} id='introVideo' width='100%' height='auto' autoPlay={autoPlay} playsInline controls onEnded={() => {
+        <video
+          ref='vidRef'
+          className={status}
+          id='introVideo'
+          width='100%'
+          height='auto'
+          autoPlay={autoPlay}
+          playsInline
+          controls
+          onEnded={() => {
             this.endVideo();
             changeVideoStatus('stop');
-            }
-          }>
-            <source src={videoURL} type='video/mp4'/>
+          }
+        }>
+          <source src={videoURL} type='video/mp4'/>
         </video>
       }
       {
         videoBlock === 'residential' &&
-        <video ref='vidRef' className={status} id='introVideo' width='100%' height='auto' onClick={ () => changeVideoStatus(!status)} poster={PosterImg && PosterImg} autoPlay={autoPlay} playsInline loop controls onEnded={() => {this.endVideo()}}>
-            <source src={videoURL} type='video/mp4'/>
+        <video
+          ref='vidRef'
+          className={status}
+          id='introVideo'
+          width='100%'
+          height='auto'
+          onClick={ () => changeVideoStatus(!status)}
+          poster={PosterImg && PosterImg}
+          autoPlay={autoPlay}
+          playsInline
+          loop
+          controls
+          onEnded={() => {
+            this.endVideo()
+          }
+        }>
+          <source src={videoURL} type='video/mp4'/>
         </video>
       }
       </div>

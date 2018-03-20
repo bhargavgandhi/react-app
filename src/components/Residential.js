@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {Helmet} from "react-helmet";
+
 import Video from './Video';
-import playBtn from '../images/play-btn.png';
+//import playBtn from '../images/play-btn.png';
 import resiPoster from '../images/video-screen-new-resi.png';
 
 class Residential extends Component {
@@ -19,7 +21,7 @@ class Residential extends Component {
     this.changeVideoStatus = this.changeVideoStatus.bind(this);
   }
 
-  componentWillMount() {
+  componentWillMount() {  
     let ua = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i),
         browser;
     if (navigator.userAgent.match(/Edge/i) || navigator.userAgent.match(/Trident.*rv[ :]*11\./i)) {
@@ -30,11 +32,18 @@ class Residential extends Component {
     }
 
     if(browser === 'safari') {
-      this.setState({
+      this.state.isSafari === false && this.setState({
         videoPoster: '',
         isSafari: true,
         PosterImg: resiPoster,
         autoPlay: false,
+      });
+    } else {
+      this.state.isSafari === true && this.setState({
+        videoPoster: 'hidden',
+        isSafari: false,
+        PosterImg: '',
+        autoPlay: true,
       });
     }
   }
@@ -56,10 +65,11 @@ class Residential extends Component {
   }
 
   componentDidMount() {
+    //const baseUrl = process.env.PUBLIC_URL;
     if (typeof window !== 'undefined') {
-      window.location.pathname === '/' && this.setState({bodyClass: 'Home2'});
-      window.location.pathname === '/residential' && this.setState({bodyClass: 'Resi', fullHeight: 'full-height',});
-      window.location.pathname === '/contact' && this.setState({bodyClass: 'Profile', fullHeight: ''});
+      // window.location.pathname === (baseUrl + '/') && this.setState({bodyClass: 'Home2'});
+      // window.location.pathname === (baseUrl + '/residential') && this.setState({bodyClass: 'Resi', fullHeight: 'full-height',});
+      // window.location.pathname === (baseUrl + '/contact') && this.setState({bodyClass: 'Profile', fullHeight: ''});
 
       const { bodyClass, isSafari, fullHeight } = this.state;
 
@@ -70,21 +80,33 @@ class Residential extends Component {
   }
 
   changeVideoStatus = (status) => {
-    status === 'play' && this.setState({videoStatus: 'play', videoPoster: 'hidden'});
-    status === 'stop' && this.setState({videoStatus: 'stop', videoPoster: ''});
+    status === 'play' && this.setState({videoStatus: 'play',});
+    status === 'stop' && this.setState({videoStatus: 'stop',});
   }
 
   render() {
-    const { videoStatus, videoPoster, PosterImg, autoPlay } = this.state;
+    const { videoStatus, PosterImg, autoPlay, isSafari } = this.state;
     const videoURL = 'https://s3.amazonaws.com/reacdn/REA/REA-residential-animation.mov';
 
     return (
       <section className='container full-height'>
+        <Helmet>
+          <title>Real Estate Arts | Residential </title>
+        	<meta name="description" content="Real Estate Arts (REA) - Residential" />
+        </Helmet>
       <div className='main'>
       <section className='row FullWidth HomeRow1 textAlignCenter' id='homeRow1'>
         <article id='homeHero' className='col-xs-12 col-md-12'>
 
-          <Video status={videoStatus} autoPlay={autoPlay} videoURL={videoURL} changeVideoStatus={this.changeVideoStatus} PosterImg={PosterImg} />
+          <Video
+            videoBlock='residential'
+            status={videoStatus}
+            isSafari={isSafari}
+            autoPlay={autoPlay}
+            videoURL={videoURL}
+            changeVideoStatus={this.changeVideoStatus}
+            PosterImg={PosterImg}
+          />
 
           <div className='control'>
             <div className='btmControl'>
@@ -103,7 +125,8 @@ class Residential extends Component {
             </div>
           </div>
 
-          <div className={`vidPlayBtn ${videoPoster}`}>
+          {/*
+            <div className={`vidPlayBtn ${videoPoster}`}>
             <a id='playBtn' className={videoPoster} onClick={ () => {
                   this.changeVideoStatus('play');
                 }
@@ -112,6 +135,7 @@ class Residential extends Component {
               <img src={playBtn} alt='play button' width='50'/>
             </a>
           </div>
+          */}
         </article>
 
         <span id='infoEmail'>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Helmet} from "react-helmet";
 import Video from './Video';
 
 class Home extends Component {
@@ -14,16 +15,17 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    //const baseUrl = process.env.PUBLIC_URL;
     if (typeof window !== 'undefined') {
-      window.location.pathname === '/' && this.setState({bodyClass: 'Home2'});
-      window.location.pathname === '/residential' && this.setState({bodyClass: 'Resi'});
-      window.location.pathname === '/contact' && this.setState({bodyClass: 'Profile'});
+      // window.location.pathname === (baseUrl + '/') && this.setState({bodyClass: 'Home2'});
+      // window.location.pathname === (baseUrl + '/residential') && this.setState({bodyClass: 'Resi'});
+      // window.location.pathname === (baseUrl + '/contact') && this.setState({bodyClass: 'Profile'});
 
       const bodyClass = this.state.bodyClass;
       const fullHeight = this.state.fullHeight;
 
       document.body.classList = '';
-      bodyClass !== '' && document.body.classList.add(bodyClass, 'animated', 'fadeIn', fullHeight !== '' && fullHeight);
+      bodyClass !== '' && document.body.classList.add(bodyClass, fullHeight !== '' && fullHeight);
     }
   }
 
@@ -38,10 +40,21 @@ class Home extends Component {
 
     return (
       <section className='container full-height'>
-      <div className='main'>
-      <section className='row FullWidth HomeRow1 textAlignCenter' id='homeRow1'>
-        <article id='homeHero' className='col-xs-12 col-md-12'>
-          <Video status={videoStatus} changeVideoStatus={this.changeVideoStatus} videoURL={videoURL} />
+        <Helmet>
+          <title>Real Estate Arts</title>
+        	<meta name="description" content="Real Estate Arts (REA)" />
+        </Helmet>
+
+        <div className='main'>
+          <section className='row FullWidth HomeRow1 textAlignCenter' id='homeRow1'>
+            <article id='homeHero' className='col-xs-12 col-md-12'>
+
+              <Video
+                videoBlock='home'
+                status={videoStatus}
+                changeVideoStatus={this.changeVideoStatus}
+                videoURL={videoURL}
+              />
 
           <div className='control'>
             <div className='btmControl'>

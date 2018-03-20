@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route, } from 'react-router-dom';
 import '../styles/sass/REAStyle.css';
 import Header from './Header';
 import Home from './Home';
@@ -12,10 +12,24 @@ function App(){
       <BrowserRouter>
         <div className="App">
           <Header />
-          <Route exact path="/" render={({history}) => (<Home />)}/>
-          <Route path="/residential" render={({history}) => (<Residential />)}/>
-          <Route path="/contact" render={({history}) => (<Contact />)}/>
-          <Footer/>
+          <Route exact path='/bg/rea/'render={() => (
+            <div>
+              <Home />
+              <Footer/>
+            </div>
+            )} />
+          <Route path='/bg/rea/residential' render={() => (
+            <div>
+              <Residential />
+              <Footer/>
+            </div>
+            )} />
+          <Route path='/bg/rea/contact' render={() => (
+            <div>
+              <Contact />
+              <Footer hideInfo='true' />
+            </div>
+            )} />
         </div>
       </BrowserRouter>
     );
